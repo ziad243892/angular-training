@@ -2,11 +2,22 @@
 
 <main>
   <ul id="users">
-    <li *ngFor="let user of users">
+    <!-- <li *ngFor="let user of users">
       <app-user (select)="onSelectUser($event)" [avatar]="user.avatar" [name]="user.name" [id]="user.id" />
-    </li>
+    </li> -->
+    @for( user of users; track user.id) {
+      <li>
+        <app-user [persons]="user" (select)="onSelectUser($event)" />
+      </li>
+    }
   </ul>
-  <app-tasks [name]="this.selectPerson"></app-tasks>
+
+  @if (this.selectPerson) {
+    <app-tasks [name]="this.selectPerson"></app-tasks>
+  } @else {
+    <p>please select User</p>
+  }
   
 </main>
+
 
