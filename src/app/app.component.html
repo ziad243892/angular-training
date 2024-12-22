@@ -2,11 +2,11 @@
 
 <main>
   <ul id="users">
-    <li  *ngFor="let user of users">
+    <li *ngFor="let user of users">
       <app-user (select)="onSelectUser($event)" [avatar]="user.avatar" [name]="user.name" [id]="user.id" />
     </li>
   </ul>
+  <app-tasks [name]="this.selectPerson"></app-tasks>
+  
 </main>
 
-
-Task of that user
