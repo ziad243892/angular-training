@@ -14,4 +14,8 @@ import {NgFor} from '@angular/common';
 export class AppComponent {
   title = 'first-angular-project';
   users = DUMMY_USERS;
+
+  onSelectUser(id:string) {
+    console.log('the id of this element is:' + id)
+  }
 }
