@@ -12,8 +12,12 @@
     }
   </ul>
 
+  
+  
+  <!-- [userId]="userId.id"  -->
+
   @if (this.selectPerson) {
-    <app-tasks [name]="this.selectPerson"></app-tasks>
+    <app-tasks [userId]="this.selectPerson" [name]="this.selectPerson"></app-tasks>
   } @else {
     <p>please select User</p>
   }
