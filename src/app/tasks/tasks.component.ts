@@ -10,7 +10,7 @@ import { TaskComponent } from './task/task.component';
 })
 
 export class TasksComponent {
-  @Input({}) userId!: string;
+  @Input({ required:true }) userId!: string;
   @Input({ required:true }) name!: string;
 
   tasks = [
