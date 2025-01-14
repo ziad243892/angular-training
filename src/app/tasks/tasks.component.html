@@ -10,12 +10,14 @@
 
 <p>{{ userId }}</p>
 
+
+<section class="task-container">
     @for (task of tasks; track userId) {
         <li>
             <app-task />
         </li>
     }
-
+</section>
 </ul>
 </section>
 
