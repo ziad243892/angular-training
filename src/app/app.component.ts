@@ -3,24 +3,26 @@ import { HeaderComponent } from './header/header.component';
 import { UserComponent } from './user/user.component';
 import { DUMMY_USERS } from '../assets/dummy-users/dummy-users';
 import { TasksComponent } from './tasks/tasks.component';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, UserComponent, TasksComponent, FormsModule, ReactiveFormsModule],
+  standalone: true,
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  imports: [HeaderComponent, UserComponent, TasksComponent]
 })
 
 export class AppComponent {
 
   users = DUMMY_USERS;
-  selectPerson?: string;
-  myControl = new FormControl('default value');
-  favoriteColor = '';
+  selectedUserId?: string;
 
-  onSelectUser(name:string) {
-    this.selectPerson = name;
+  get selectedUser() { 
+    return this.users.find((user) => user.id === this.selectedUserId);
+  }
+
+  onSelectUser(id: string) {
+    this.selectedUserId = id;
   }
 
 }

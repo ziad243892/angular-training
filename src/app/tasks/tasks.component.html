@@ -8,11 +8,8 @@
 
 <ul>
 
-<p>{{ userId }}</p>
-
-
 <section class="task-container">
-    @for (task of tasks; track userId) {
+    @for (task of selectedUserTasks; track task.id) {
         <li>
             <app-task />
         </li>
