@@ -1,20 +1,21 @@
 <section id="tasks">
-    <header>
+  <header>
+    <!-- Display the name of the user -->
     <h2>{{ name }}'s Tasks</h2>
     <menu>
-        <button>Add Task</button>
+      <button>Add Task</button>
     </menu>
-</header>
+  </header>
 
-<ul>
-
-<section class="task-container">
-    @for (task of selectedUserTasks; track task.id) {
+  <ul>
+    <section class="task-container">
+      <!-- Loop through selectedUserTasks and display each task using app-task component -->
+      @for (task of selectedUserTasks; track task.id) {
         <li>
-            <app-task [task]="task" />
+          <app-task [task]="task" (complete)="completeTask($event)" />
         </li>
-    }
-</section>
-</ul>
+      }
+    </section>
+  </ul>
 </section>
 

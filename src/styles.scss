@@ -1,16 +1,21 @@
+@import './styles/variables';
+
+// Set box-sizing to border-box for all elements
 * {
-    box-sizing: border-box;
-  }
-  
-  html {
-    height: 100%;
-  }
-  
-  body {
-    font-family: "Poppins", sans-serif;
-    background: radial-gradient(circle at top left, #181023, #0b0519);
-    color: #c3b3d8;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-  }
+  box-sizing: border-box;
+}
+
+// Set height to 100% for html element
+html {
+  height: 100%;
+}
+
+// Set styles for body element
+body {
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at top left, $body-background-gradient-start, $body-background-gradient-end);
+  color: $body-text-color;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}

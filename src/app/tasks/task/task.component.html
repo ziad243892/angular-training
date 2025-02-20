@@ -1,8 +1,12 @@
 <article>
-    <h2>{{ task.title }}</h2>
-    <time>{{ task.dueDate }}</time>
-    <p>{{ task.summary }}</p>
-    <p class="actions">
-        <button>Complete</button>
-    </p>
+  <!-- Display task title -->
+  <h2>{{ task.title }}</h2>
+  <!-- Display task due date -->
+  <time>{{ task.dueDate }}</time>
+  <!-- Display task summary -->
+  <p>{{ task.summary }}</p>
+  <p class="actions">
+    <!-- Button to complete the task -->
+    <button (click)="onCompleteTask()">Complete</button>
+  </p>
 </article>

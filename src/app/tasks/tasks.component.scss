@@ -1,8 +1,10 @@
+@import '../../styles/variables';
+
 #tasks {
     padding: 1rem;
     border-radius: 8px;
     max-height: 62vh;
-    background-color: #3a2c54;
+    background-color: $background-color;
   }
   
   header {
@@ -28,7 +30,7 @@
   menu button {
     font: inherit;
     cursor: pointer;
-    background-color: #9965dd;
+    background-color: $button-background-color;
     border-radius: 4px;
     border: none;
     padding: 0.35rem 0.8rem;
@@ -37,7 +39,7 @@
   
   menu button:hover,
   menu button:active {
-    background-color: #a565dd
+    background-color: $button-hover-background-color;
   }
   
   ul {
@@ -50,21 +52,5 @@
     max-height: 50vh;
   }
   
-  @media (min-width: 768px) {
-    h2 {
-      font-size: 1.25rem;
-    }
-  
-    menu {
-      width: auto;
-    }
-  }
-
-  .task-container {
-    overflow: auto;
-    max-height: calc(100vh - 466px);
-    padding-inline-end: 10px;
-    li:not(:last-child) {
-      margin-bottom: 20px;
-    }
-  }
+  @media (min-width: 768px) {}
+   
