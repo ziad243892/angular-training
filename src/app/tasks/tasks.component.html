@@ -3,7 +3,7 @@
     <!-- Display the name of the user -->
     <h2>{{ name }}'s Tasks</h2>
     <menu>
-      <button>Add Task</button>
+      <button (click)="openAddTaskDialog()">Add Task</button>
     </menu>
   </header>
 
@@ -19,3 +19,6 @@
   </ul>
 </section>
 
+@if (isAddTaskDialogOpen) { 
+  <app-add-tasks (close)="closeAddTaskDialog()"></app-add-tasks>
+}
