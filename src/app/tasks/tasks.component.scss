@@ -1,6 +1,6 @@
-@import '../../styles/variables';
+@use '../../styles/variables' as *;
 
-#tasks {
+#tasks { 
     padding: 1rem;
     border-radius: 8px;
     max-height: 62vh;
