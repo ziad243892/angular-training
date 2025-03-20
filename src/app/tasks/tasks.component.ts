@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
+import { AddTasksComponent } from './add-tasks/add-tasks.component';
 
 @Component({
   selector: 'app-tasks',
   standalone: true,
-  imports: [TaskComponent],
+  imports: [TaskComponent, AddTasksComponent],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.scss'
 })
@@ -12,6 +13,17 @@ export class TasksComponent {
   // Input properties to receive userId and name from parent component
   @Input({ required:true }) userId!: string;
   @Input({ required:true }) name!: string;
+  
+  isAddTaskDialogOpen = false;
+
+  // Methods to control the add task dialog
+  openAddTaskDialog() {
+    this.isAddTaskDialogOpen = true;
+  }
+
+  closeAddTaskDialog() {
+    this.isAddTaskDialogOpen = false;
+  }
 
   // Array of tasks
   tasks = [
