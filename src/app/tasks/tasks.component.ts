@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import { AddTasksComponent } from './add-tasks/add-tasks.component';
+import { type NewTaskData } from './task/task.model';
 
 @Component({
   selector: 'app-tasks',
@@ -23,6 +24,17 @@ export class TasksComponent {
 
   closeAddTaskDialog() {
     this.isAddTaskDialogOpen = false;
+  }
+
+  onAddTask(taskData:NewTaskData) {
+      this.tasks.unshift({
+        id: new Date().getTime().toString(),
+        userId: this.userId,
+        title: taskData.title,
+        summary: taskData.summary,
+        dueDate: taskData.date
+      })
+      this.isAddTaskDialogOpen = false;
   }
 
   // Array of tasks
@@ -50,6 +62,13 @@ export class TasksComponent {
     },
   ];
 
+  constructor() {
+    const tasks = localStorage.getItem('tasks');
+    if (tasks) {
+      this.tasks = JSON.parse(tasks);
+    }
+  }
+
   // Getter to filter tasks based on the selected userId
   get selectedUserTasks() {
     return this.tasks.filter((task) => task.userId === this.userId);
@@ -58,5 +77,10 @@ export class TasksComponent {
   // Method to complete a task by removing it from the tasks array
   completeTask(id: string) {
     this.tasks = this.tasks.filter((task) => task.id !== id);
+    this.saveTasks();
+  }
+
+  saveTasks() {
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 }

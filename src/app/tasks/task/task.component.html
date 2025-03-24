@@ -2,7 +2,7 @@
   <!-- Display task title -->
   <h2>{{ task.title }}</h2>
   <!-- Display task due date -->
-  <time>{{ task.dueDate }}</time>
+  <time>{{ task.dueDate | date: 'fullDate' }}</time>
   <!-- Display task summary -->
   <p>{{ task.summary }}</p>
   <p class="actions">

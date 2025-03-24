@@ -20,5 +20,5 @@
 </section>
 
 @if (isAddTaskDialogOpen) { 
-  <app-add-tasks (close)="closeAddTaskDialog()"></app-add-tasks>
+  <app-add-tasks (close)="closeAddTaskDialog()" (add)="onAddTask($event)"></app-add-tasks>
 }
